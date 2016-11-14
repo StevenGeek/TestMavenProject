@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.steven.testSpring</groupId>
+  <artifactId>Spring.test1</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Spring.test1 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+      <org.springframework.version>4.2.4.RELEASE</org.springframework.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+      
+    </dependency>
+    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-test</artifactId>
+  			<version>${org.springframework.version}</version>
+  			<scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>commons-fileupload</groupId>
+		  <artifactId>commons-fileupload</artifactId>
+		  <version>1.3.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.5.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.5.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.5.1</version>
+		</dependency>
+			<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		
+  </dependencies>
+  <build>
+    <finalName>Spring.test1</finalName>
+    <plugins>
+    	<plugin>
+		    <groupId>org.codehaus.cargo</groupId>
+		    <artifactId>cargo-maven2-plugin</artifactId>
+		    <configuration>
+		    	<container>
+		    		<containerId>tomcat7x</containerId>
+		    		<home>D:\Program Files\Apache Software Foundation\tomcat-testJenkins\tomcat-testJenkins</home>
+		    	</container>
+		    	<configuration>
+				    <type>standalone</type>
+				    <home>${project.build.directory}/tomcat7x</home>
+				    <properties>  
+		                <!-- 更改监听端口 -->  
+		                <cargo.servlet.port>8088</cargo.servlet.port>  
+		            </properties> 
+		    	</configuration>
+	    	</configuration>
+		    <version>1.6.0</version>
+    	</plugin>
+    </plugins>
+  </build>
+   <distributionManagement> <!-- release repository element (only one) -->
+        <repository><!-- release version component repository  --><!-- Q:是否可以多配置几个仓库 -->
+            <id>releases</id><!-- release repository unique identification (*)-->
+            <name>My release test repository</name><!-- only description to read -->
+            <url>http://localhost:12345/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository><!-- snapshot version component repository -->
+            <id>StevenTest1</id><!--snapshot repository unique identification (*)-->
+            <name>My snapshot test repository</name><!-- only description to read -->
+            <url>http://localhost:12345/nexus/content/repositories/StevenTest1</url><!-- target snapshot repository address (*)-->
+        </snapshotRepository>
+   </distributionManagement>
+ 	
+ 	<repositories>
+ 		<repository>
+ 			<id>releases</id><!-- release repository unique identification (*)-->
+            <name>My release test repository</name><!-- only description to read -->
+            <url>http://localhost:12345/nexus/content/repositories/releases</url>
+            <releases> <!-- it's to control release verson download element -->
+				<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
+				<!-- 配置maven从远程仓库检查更新的频率 -->
+				<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
+				<!-- 配置maven检查检验和文件策略 -->
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases> 
+			<snapshots> <!-- it's to control snapshot verson download element -->
+				<enabled>true</enabled><!--  same as release element -->
+				<updatePolicy>always</updatePolicy><!-- same as release element -->
+			</snapshots> 
+ 		</repository>
+ 		
+ 		<repository>
+ 			<id>StevenTest1</id><!--snapshot repository unique identification (*)-->
+            <name>My snapshot test repository</name><!-- only description to read -->
+            <url>http://localhost:12345/nexus/content/repositories/StevenTest1</url><!-- target snapshot repository address (*)-->
+            <releases> <!-- it's to control release verson download element -->
+			<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
+			<!-- 配置maven从远程仓库检查更新的频率 -->
+			<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
+			<!-- 配置maven检查检验和文件策略 -->
+			<checksumPolicy>ignore</checksumPolicy>
+			</releases> 
+			<snapshots> <!-- it's to control snapshot verson download element -->
+				<enabled>true</enabled><!--  same as release element -->
+				<updatePolicy>interval:5</updatePolicy><!-- same as release element -->
+			</snapshots> 
+ 		</repository>
+ 	</repositories>
+</project>

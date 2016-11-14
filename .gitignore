@@ -1,0 +1,7 @@
+test.parent/.classpath
+Spring.test1/target/
+test.parent/.settings/
+test1.dependencyJar/test1.dependencyJar/.settings/
+test.parent/.project
+test1.dependencyJar/test1.dependencyJar/.classpath
+test1.dependencyJar/test1.dependencyJar/.project
