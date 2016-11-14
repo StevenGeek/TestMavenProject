@@ -1,6 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.steven.testSpring</groupId>
+    <artifactId>test.parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../test.parent</relativePath>
+  </parent>
+  
   <groupId>com.steven.testSpring</groupId>
   <artifactId>Spring.test1</artifactId>
   <packaging>war</packaging>
@@ -110,52 +118,5 @@
     	</plugin>
     </plugins>
   </build>
-   <distributionManagement> <!-- release repository element (only one) -->
-        <repository><!-- release version component repository  --><!-- Q:是否可以多配置几个仓库 -->
-            <id>releases</id><!-- release repository unique identification (*)-->
-            <name>My release test repository</name><!-- only description to read -->
-            <url>http://localhost:12345/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository><!-- snapshot version component repository -->
-            <id>StevenTest1</id><!--snapshot repository unique identification (*)-->
-            <name>My snapshot test repository</name><!-- only description to read -->
-            <url>http://localhost:12345/nexus/content/repositories/StevenTest1</url><!-- target snapshot repository address (*)-->
-        </snapshotRepository>
-   </distributionManagement>
- 	
- 	<repositories>
- 		<repository>
- 			<id>releases</id><!-- release repository unique identification (*)-->
-            <name>My release test repository</name><!-- only description to read -->
-            <url>http://localhost:12345/nexus/content/repositories/releases</url>
-            <releases> <!-- it's to control release verson download element -->
-				<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
-				<!-- 配置maven从远程仓库检查更新的频率 -->
-				<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
-				<!-- 配置maven检查检验和文件策略 -->
-				<checksumPolicy>ignore</checksumPolicy>
-			</releases> 
-			<snapshots> <!-- it's to control snapshot verson download element -->
-				<enabled>true</enabled><!--  same as release element -->
-				<updatePolicy>always</updatePolicy><!-- same as release element -->
-			</snapshots> 
- 		</repository>
- 		
- 		<repository>
- 			<id>StevenTest1</id><!--snapshot repository unique identification (*)-->
-            <name>My snapshot test repository</name><!-- only description to read -->
-            <url>http://localhost:12345/nexus/content/repositories/StevenTest1</url><!-- target snapshot repository address (*)-->
-            <releases> <!-- it's to control release verson download element -->
-			<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
-			<!-- 配置maven从远程仓库检查更新的频率 -->
-			<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
-			<!-- 配置maven检查检验和文件策略 -->
-			<checksumPolicy>ignore</checksumPolicy>
-			</releases> 
-			<snapshots> <!-- it's to control snapshot verson download element -->
-				<enabled>true</enabled><!--  same as release element -->
-				<updatePolicy>interval:5</updatePolicy><!-- same as release element -->
-			</snapshots> 
- 		</repository>
- 	</repositories>
+
 </project>
