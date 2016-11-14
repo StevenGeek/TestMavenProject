@@ -15,10 +15,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Spring.test1 Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <properties>
-      <org.springframework.version>4.2.4.RELEASE</org.springframework.version>
-  </properties>
+  
   <dependencies>
+  <dependency>
+  	<groupId>com.steven.testSpring</groupId>
+    <artifactId>test1.dependencyJar</artifactId>
+    <version>${project.version}</version>
+  </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -26,37 +29,7 @@
       <scope>test</scope>
       
     </dependency>
-    <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-  			<groupId>org.springframework</groupId>
-  			<artifactId>spring-test</artifactId>
-  			<version>${org.springframework.version}</version>
-  			<scope>test</scope>
-		</dependency>
+
 		<dependency>
 		  <groupId>commons-fileupload</groupId>
 		  <artifactId>commons-fileupload</artifactId>

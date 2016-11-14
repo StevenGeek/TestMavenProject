@@ -1,13 +1,15 @@
 package com.steven.testSpring.test1.dependencyJar;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Hello world!
  *
  */
+@Service
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello Worl1d!" );
+    public String testString(){
+    	return "first";
     }
 }
