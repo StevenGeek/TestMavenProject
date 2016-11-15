@@ -12,7 +12,7 @@ import com.steven.testSpring.test1.dependencyJar.bean.Teacher;
  * Hello world!
  *
  */
-@Component
+
 public class App implements IApp
 {
 	public App(){
