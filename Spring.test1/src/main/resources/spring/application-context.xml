@@ -20,10 +20,10 @@
 	</context:component-scan>
 	
 
-<!-- 	<bean id="App" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx"> -->
-<!-- 		<property name = "student" ref="Student"></property> -->
-<!-- 		<property name = "teacher" value="#{Teacher}"></property> -->
-<!-- 	</bean> -->
+	<bean id="App" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx">
+		<property name = "student" ref="Student"></property>
+		<property name = "teacher" value="#{Teacher}"></property>
+	</bean>
 	
 	<bean id = "Student" class = "com.steven.testSpring.test1.dependencyJar.bean.Student" >
 		<property name = "name" value = "cc"></property>

@@ -1,6 +1,7 @@
 package com.Spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.steven.testSpring.test1.dependencyJar.impl.App;
 @RequestMapping(value = "/springTest")
 public class testController1 {
 	@Autowired
+	@Qualifier("App")
 	private IApp m_App;
 	@Value("${aa}")
     private String aa;
@@ -27,8 +29,8 @@ public class testController1 {
     @RequestMapping(value = "/value2", method = RequestMethod.GET)
     @ResponseBody
     public String testValue2() {
-    	return m_App.testString();
-//        return m_App.testString() + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
+//    	return m_App.testString();
+        return m_App.testString() + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
     }
 
 }
