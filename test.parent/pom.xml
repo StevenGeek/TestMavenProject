@@ -161,23 +161,5 @@
 	 		</plugin>
 	 	</plugins>
  	</build>
-   <profiles>
-   	<profile>
-   		<id>dev</id>
-   		<activation>
-   			<activeByDefault>true</activeByDefault>
-   		</activation>
-   		<properties>
-   			<db.driver>com.mysql.jdbc.Driver</db.driver>
-   			<aa>dev</aa>
-   		</properties>
-   	</profile>
-   	   	<profile>
-   		<id>test</id>
-   		<properties>
-   			<db.driver>com.mysql.jdbc.Driver</db.driver>
-   			<aa>test</aa>
-   		</properties>
-   	</profile>
-   </profiles>
+
 </project>
