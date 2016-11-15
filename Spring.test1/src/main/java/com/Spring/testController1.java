@@ -16,7 +16,7 @@ import com.steven.testSpring.test1.dependencyJar.impl.App;
 @RequestMapping(value = "/springTest")
 public class testController1 {
 	@Autowired
-	@Qualifier("App")
+	@Qualifier("app")
 	private IApp m_App;
 	@Value("${aa}")
     private String aa;

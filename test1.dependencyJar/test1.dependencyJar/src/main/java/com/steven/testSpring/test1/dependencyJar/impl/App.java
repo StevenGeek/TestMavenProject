@@ -41,6 +41,7 @@ public class App implements IApp
 		this.student = student;
 	}
 	public String testString(){
+		System.out.println("run testString method......\r\n");
     	return "first second "
     			+ "\r\n"
     			+ "my first";

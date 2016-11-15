@@ -15,18 +15,23 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 	<mvc:annotation-driven/>
+<!-- 配置自动扫描type=assignable扫描派生于expression表达式所指定类型的哪些类  Spring实战p80  3.3.2过滤组件扫描 -->
 	<context:component-scan base-package="com.steven" >
 		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IApp"></context:include-filter>
+		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.aspectJbean.LogAudience"></context:include-filter>
 	</context:component-scan>
 	
-
-	<bean id="App" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx">
+<!-- 扫描出来的实现Iapp的类app默认bean id为小写类名，此处为其装配默认属性 -->
+	<bean id="app" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx">
+<!-- 	装配类属性 -->
 		<property name = "student" ref="Student"></property>
+<!-- 	使用SpEL表达式装配类属性 -->
 		<property name = "teacher" value="#{Teacher}"></property>
 	</bean>
 	
 	<bean id = "Student" class = "com.steven.testSpring.test1.dependencyJar.bean.Student" >
 		<property name = "name" value = "cc"></property>
+<!-- 	使用SpEL表达式装配属性 -->
 		<property name = "num" value = "#{1}"></property>
 	</bean>
 
@@ -35,6 +40,28 @@
 		<property name = "name" value = "teachercc"></property>
 		<property name = "num" value = "#{1}"></property>
 	</bean>
+	
+<!-- 切面bean	 -->
+<!-- 	<bean id = "logAudience" class = "com.steven.testSpring.test1.dependencyJar.aspectJbean.LogAudience"></bean> -->
+
+	<aop:config>
+	 <aop:aspect ref="logAudience">
+<!-- 	 定义aop前置通知 -->
+	 	<aop:before pointcut=
+	 	"execution(* com.steven.testSpring.test1.dependencyJar.impl.App.testString(..))"
+	 	method = "runBeforeMethod"/>
+<!-- 	 定义aop后置通知 -->
+	 	<aop:after pointcut=
+	 	"execution(* com.steven.testSpring.test1.dependencyJar.impl.App.testString(..))"
+	 	method = "runAfterMethod"/>
+<!-- 	 定义aop抛异常通知 -->
+	 	<aop:after-throwing pointcut=
+	 	"execution(* com.steven.testSpring.test1.dependencyJar.impl.App.testString(..))"
+	 	method = "runAfterThrow"/>
+	 </aop:aspect>
+	</aop:config>
+	
+<!-- 导入其他spring配置文件 -->
 	<import resource="classpath:spring/application-*-context.xml" />
 	
 </beans>
