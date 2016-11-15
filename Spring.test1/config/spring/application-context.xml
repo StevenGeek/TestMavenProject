@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<mvc:annotation-driven/>
+	<context:component-scan base-package="com.steven" >
+		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IApp"></context:include-filter>
+	</context:component-scan>
+	
+
+	<bean id="App" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx">
+		<property name = "student" ref="Student"></property>
+		<property name = "teacher" value="#{Teacher}"></property>
+	</bean>
+	
+	<bean id = "Student" class = "com.steven.testSpring.test1.dependencyJar.bean.Student" >
+		<property name = "name" value = "cc"></property>
+		<property name = "num" value = "#{1}"></property>
+	</bean>
+
+	<bean id ="Teacher" class = "com.steven.testSpring.test1.dependencyJar.bean.Teacher"
+	p:stu-ref="Student" >
+		<property name = "name" value = "teachercc"></property>
+		<property name = "num" value = "#{1}"></property>
+	</bean>
+	<import resource="classpath:spring/application-*-context.xml" />
+	
+</beans>
