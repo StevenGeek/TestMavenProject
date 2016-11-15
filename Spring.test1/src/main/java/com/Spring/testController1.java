@@ -16,7 +16,6 @@ public class testController1 {
 	private App m_App;
 	@Value("${aa}")
     private String aa;
-    private final String AA = aa;
 
     @RequestMapping(value = "/value1", method = RequestMethod.GET)
     @ResponseBody
@@ -26,7 +25,8 @@ public class testController1 {
     @RequestMapping(value = "/value2", method = RequestMethod.GET)
     @ResponseBody
     public String testValue2() {
-        return m_App.testString();
+    	
+        return m_App.testString() + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
     }
 
 }

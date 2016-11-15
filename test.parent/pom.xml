@@ -84,37 +84,47 @@
    </distributionManagement>
  	
  	<repositories>
+<!--  	 		<repository> -->
+<!--  			<id>public</id>release repository unique identification (*) -->
+<!--             <name>My repository Group</name>only description to read -->
+<!--             <url>http://localhost:12345/nexus/content/groups/public/</url> -->
+<!--             <releases> it's to control release verson download element -->
+<!-- 				<enabled>true</enabled> value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
+<!-- 				<updatePolicy>always</updatePolicy>value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
+<!-- 				<checksumPolicy>ignore</checksumPolicy> -->
+<!-- 			</releases>  -->
+<!-- 			<snapshots> it's to control snapshot verson download element -->
+<!-- 				<enabled>true</enabled> same as release element -->
+<!-- 				<updatePolicy>always</updatePolicy>same as release element -->
+<!-- 			</snapshots>  -->
+<!--  		</repository> -->
  		<repository>
- 			<id>releases</id><!-- release repository unique identification (*)-->
-            <name>My release test repository</name><!-- only description to read -->
+ 			<id>releases</id>
+            <name>My release test repository</name>
             <url>http://192.168.0.153:12345/nexus/content/repositories/releases</url>
-            <releases> <!-- it's to control release verson download element -->
-				<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
-				<!-- 配置maven从远程仓库检查更新的频率 -->
-				<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
-				<!-- 配置maven检查检验和文件策略 -->
+            <releases> 
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>ignore</checksumPolicy>
 			</releases> 
-			<snapshots> <!-- it's to control snapshot verson download element -->
-				<enabled>true</enabled><!--  same as release element -->
-				<updatePolicy>always</updatePolicy><!-- same as release element -->
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
 			</snapshots> 
  		</repository>
  		
  		<repository>
- 			<id>StevenTest1</id><!--snapshot repository unique identification (*)-->
-            <name>My snapshot test repository</name><!-- only description to read -->
-            <url>http://192.168.0.153:12345/nexus/content/repositories/StevenTest1</url><!-- target snapshot repository address (*)-->
-            <releases> <!-- it's to control release verson download element -->
-			<enabled>true</enabled><!--  value scope【true——开启发布版本下载, false——关闭发布版本下载】 (*) -->
-			<!-- 配置maven从远程仓库检查更新的频率 -->
-			<updatePolicy>always</updatePolicy><!-- value scope【daily(default)——每天检查一次, never——从不检查, always——每次构建都检查更新, interval:X——每个X分钟检查一次更新】 -->
-			<!-- 配置maven检查检验和文件策略 -->
+ 			<id>StevenTest1</id>
+            <name>My snapshot test repository</name>
+            <url>http://192.168.0.153:12345/nexus/content/repositories/StevenTest1</url>
+            <releases> 
+			<enabled>true</enabled> 
+			<updatePolicy>always</updatePolicy>
 			<checksumPolicy>ignore</checksumPolicy>
 			</releases> 
-			<snapshots> <!-- it's to control snapshot verson download element -->
-				<enabled>true</enabled><!--  same as release element -->
-				<updatePolicy>interval:5</updatePolicy><!-- same as release element -->
+			<snapshots> 
+				<enabled>true</enabled> 
+				<updatePolicy>always</updatePolicy>
 			</snapshots> 
  		</repository>
  	</repositories>
