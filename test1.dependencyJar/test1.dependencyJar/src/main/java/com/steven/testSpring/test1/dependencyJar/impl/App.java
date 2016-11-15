@@ -1,15 +1,19 @@
-package com.steven.testSpring.test1.dependencyJar;
+package com.steven.testSpring.test1.dependencyJar.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import com.steven.testSpring.test1.dependencyJar.IApp;
+import com.steven.testSpring.test1.dependencyJar.bean.Student;
+import com.steven.testSpring.test1.dependencyJar.bean.Teacher;
 
 /**
  * Hello world!
  *
  */
 @Component
-public class App 
+public class App implements IApp
 {
 	public App(){
 		

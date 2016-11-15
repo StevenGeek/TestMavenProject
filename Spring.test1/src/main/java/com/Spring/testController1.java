@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.steven.testSpring.test1.dependencyJar.App;
+import com.steven.testSpring.test1.dependencyJar.IApp;
+import com.steven.testSpring.test1.dependencyJar.PersonInterface;
+import com.steven.testSpring.test1.dependencyJar.impl.App;
 
 @Controller
 @RequestMapping(value = "/springTest")
 public class testController1 {
 	@Autowired
-	private App m_App;
+	private IApp m_App;
 	@Value("${aa}")
     private String aa;
 

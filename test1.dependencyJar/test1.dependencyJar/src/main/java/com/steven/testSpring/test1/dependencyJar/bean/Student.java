@@ -1,6 +1,8 @@
-package com.steven.testSpring.test1.dependencyJar;
+package com.steven.testSpring.test1.dependencyJar.bean;
 
 import org.springframework.stereotype.Component;
+
+import com.steven.testSpring.test1.dependencyJar.PersonInterface;
 
 public class Student implements PersonInterface{
 
