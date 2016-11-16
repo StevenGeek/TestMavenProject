@@ -9,14 +9,24 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.Versioned;
 @Component
 @Aspect
 public class ProInnerInjectAopBean {
 	@Pointcut("execution(* com.steven.testSpring.test1.dependencyJar.impl.App.testInjectAop(..)) || within(com.steven.*)")
 	public void performance(){}
+	@Pointcut("execution(* com.steven.testSpring.test1.dependencyJar.impl.App.setAtt(String)) && args(thoughts)")
+	public void read(String thoughts){
+		
+	}
 	@Before("performance()")
 	public void runBeforeMethod(){
 		System.out.println("This is printed before method running......\r\n");
+	}
+	@Before("read(thoughts)")
+	public void readAtt(String thoughts){
+		System.out.println("This read by InnerInjectAop: " + thoughts + "\r\n");
 	}
 	@After("performance()")
 	public void runAfterMethod(){
