@@ -21,6 +21,7 @@ public class App implements IApp
 	private String X;
 	private Student student;
 	private Teacher teacher;
+	private String attribute;
     public String getX() {
 		return X;
 	}
@@ -46,4 +47,14 @@ public class App implements IApp
     			+ "\r\n"
     			+ "my first";
     }
+	public int testInjectAop(int a){
+		System.out.println("run testInjectAop method......\r\n");
+    	return 2/a;
+    }
+	public void setAtt(String p_Attibute) {
+		this.attribute = p_Attibute;
+	}
+	public String getAtt() {
+		return this.attribute;
+	}
 }

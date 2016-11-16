@@ -8,4 +8,7 @@ public interface IApp {
 	public Teacher getTeacher();
 	public String getX();
 	public String testString();
+	public int testInjectAop(int a);
+	public void setAtt(String p_Attibute);
+	public String getAtt();
 }
