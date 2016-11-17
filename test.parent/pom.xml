@@ -75,7 +75,16 @@
 		  <version>4.11</version>
 		  <scope>test</scope>
 		</dependency>
-		
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jsp-api</artifactId>
+		  <version>2.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+		</dependency>
 <!-- 		aspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -184,6 +193,16 @@
 	 				</webResources>
 	 			</configuration>
 	 		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			  	<artifactId>maven-compiler-plugin</artifactId>
+			  	<version>3.1</version>
+			  	<!-- maven编译插件不支持高版本jdk，此处配置使其支持高版本jdk -->
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
 	 	</plugins>
  	</build>
 

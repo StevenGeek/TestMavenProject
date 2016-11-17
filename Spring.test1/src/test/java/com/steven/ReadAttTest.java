@@ -9,18 +9,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.steven.testSpring.test1.dependencyJar.IApp;
 import com.steven.testSpring.test1.dependencyJar.aspectJbean.LogAudience;
 
-import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/spring/application-context.xml")
-public class testReadAtt {
+public class ReadAttTest {
 	@Autowired
 	private IApp m_App;
 	@Autowired
 	private LogAudience c_LogAudience;
 	@Test
-	public void testReadA(){
+	public void TestReadA(){
 		m_App.setAtt("dd");
-		org.junit.Assert.assertEquals(m_App.getAtt(), c_LogAudience.getAtt());
+		org.junit.Assert.assertEquals(m_App.getAtt()+"a", c_LogAudience.getAtt());
 	}
 }
