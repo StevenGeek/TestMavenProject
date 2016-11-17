@@ -4,12 +4,10 @@
   <parent>
     <groupId>com.steven.testSpring</groupId>
     <artifactId>test.parent</artifactId>
-    <version>${package.version}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <relativePath>../../test.parent</relativePath>
   </parent>
-  <groupId>com.steven.testSpring</groupId>
   <artifactId>test1.dependencyJar</artifactId>
-  <version>${package.version}</version>
   <packaging>jar</packaging>
 
   <name>test1.dependencyJar</name>

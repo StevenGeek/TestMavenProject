@@ -4,7 +4,7 @@
 
   <groupId>com.steven.testSpring</groupId>
   <artifactId>test.parent</artifactId>
-  <version>${package.version}</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>test.parent</name>
@@ -165,16 +165,11 @@
  	<build>
 	 	<resources>
 	 		<resource>
-	 			<directory>${project.dir}/src/main/resources</directory>
+	 			<directory>${project.basedir}/src/main/resources</directory>
 	 			<filtering>true</filtering>
 	 		</resource>
 	 	</resources>
-	 	<testResources>
-	 		<testResource>
-	 			<directory>${project.dir}/src/test/resources</directory>
-	 			<filtering>true</filtering>
-	 		</testResource>
-	 	</testResources>
+
 	 	<plugins>
 	 		<plugin>
 	 			<groupId>org.apache.maven.plugins</groupId>
