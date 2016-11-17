@@ -5,14 +5,12 @@
   <parent>
     <groupId>com.steven.testSpring</groupId>
     <artifactId>test.parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${package.version}</version>
     <relativePath>../test.parent</relativePath>
   </parent>
   
-  <groupId>com.steven.testSpring</groupId>
   <artifactId>Spring.test1</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
   <name>Spring.test1 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
@@ -20,7 +18,7 @@
   <dependency>
   	<groupId>com.steven.testSpring</groupId>
     <artifactId>test1.dependencyJar</artifactId>
-    <version>${project.version}</version>
+    <version>${package.version}</version>
   </dependency>
 
 

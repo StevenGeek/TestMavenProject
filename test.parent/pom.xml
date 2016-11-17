@@ -4,7 +4,7 @@
 
   <groupId>com.steven.testSpring</groupId>
   <artifactId>test.parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>${package.version}</version>
   <packaging>pom</packaging>
 
   <name>test.parent</name>
