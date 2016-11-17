@@ -132,6 +132,20 @@
 <!-- 				<updatePolicy>always</updatePolicy>same as release element -->
 <!-- 			</snapshots>  -->
 <!--  		</repository> -->
+		<repository>
+ 			<id>public</id>
+            <name>My repository Group</name>
+            <url>http://localhost:12345/nexus/content/groups/public/</url>
+            <releases> 
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases> 
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots> 
+ 		</repository>
  		<repository>
  			<id>releases</id>
             <name>My release test repository</name>
