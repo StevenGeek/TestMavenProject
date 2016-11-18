@@ -22,7 +22,13 @@ public class testController1 {
 	private IApp m_App;
 	@Value("${aa}")
     private String aa;
-
+	
+	@RequestMapping(value = "/repositoryTest", method = RequestMethod.GET)
+    @ResponseBody
+    public String repositoryTest() {
+        return m_App.repositoryTest();
+    }
+	
     @RequestMapping(value = "/value1", method = RequestMethod.GET)
     @ResponseBody
     public String testValue() {
@@ -32,7 +38,8 @@ public class testController1 {
     @ResponseBody
     public String testValue2() {
 //    	return m_App.testString();
-        return m_App.testString() + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
+    	String X = m_App.testString();
+        return m_App.testString() + "\r\n" + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
     }
     @RequestMapping(value = "/value3/{a}", method = RequestMethod.GET)
     @ResponseBody

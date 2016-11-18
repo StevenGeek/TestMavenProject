@@ -42,10 +42,9 @@ public class App implements IApp
 		this.student = student;
 	}
 	public String testString(){
-		System.out.println("run testString method......\r\n");
-    	return "first second "
-    			+ "\r\n"
-    			+ "my first";
+//		System.out.println("run testString method......\r\n");
+		String aString = "b";
+    	return aString;
     }
 	public int testInjectAop(int a){
 		System.out.println("run testInjectAop method......\r\n");
@@ -56,5 +55,8 @@ public class App implements IApp
 	}
 	public String getAtt() {
 		return this.attribute;
+	}
+	public String repositoryTest(){
+		return "see";
 	}
 }

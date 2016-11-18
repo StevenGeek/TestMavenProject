@@ -26,8 +26,5 @@ public class ReadAttTest {
 		m_App.setAtt("dd");
 		org.junit.Assert.assertEquals(m_App.getAtt(), c_LogAudience.getAtt());
 	}
-	@Test
-	public void TestResources(){
-		org.junit.Assert.assertEquals("asdg", c_TestController1.testValue());
-	}
+
 }

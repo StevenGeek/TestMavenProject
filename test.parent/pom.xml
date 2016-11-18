@@ -143,38 +143,10 @@
 			</releases> 
 			<snapshots>
 				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
+				<updatePolicy>interval:5</updatePolicy>
 			</snapshots> 
  		</repository>
- 		<repository>
- 			<id>releases</id>
-            <name>My release test repository</name>
-            <url>http://192.168.0.153:12345/nexus/content/repositories/releases</url>
-            <releases> 
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>ignore</checksumPolicy>
-			</releases> 
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots> 
- 		</repository>
- 		
- 		<repository>
- 			<id>StevenTest1</id>
-            <name>My snapshot test repository</name>
-            <url>http://192.168.0.153:12345/nexus/content/repositories/StevenTest1</url>
-            <releases> 
-			<enabled>true</enabled> 
-			<updatePolicy>always</updatePolicy>
-			<checksumPolicy>ignore</checksumPolicy>
-			</releases> 
-			<snapshots> 
-				<enabled>true</enabled> 
-				<updatePolicy>always</updatePolicy>
-			</snapshots> 
- 		</repository>
+
  	</repositories>
  	<build>
 	 	<resources>
