@@ -1,4 +1,6 @@
-package com.steven.testSpring.test1.dependencyJar;
+package com.steven.testSpring.test1.dependencyJar.bean;
+
+import com.steven.testSpring.test1.dependencyJar.PersonInterface;
 
 public class Teacher implements PersonInterface{
 	private String num;

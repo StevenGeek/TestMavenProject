@@ -11,7 +11,9 @@
         default-lazy-init="true">
         
 	<mvc:annotation-driven/>
-    <context:component-scan base-package="com.Spring"/>
+    <context:component-scan base-package="com.Spring">
+<!--     	<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IApp"></context:include-filter> -->
+    </context:component-scan>
 <!-- 	<bean id="setting" -->
 <!-- 		class ="org.springframework.beans.factory.config.PropertiesFactoryBean"> -->
 <!-- 			<property name="locations"> -->

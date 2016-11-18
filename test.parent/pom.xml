@@ -4,7 +4,7 @@
 
   <groupId>com.steven.testSpring</groupId>
   <artifactId>test.parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>test.parent</name>
@@ -68,6 +68,40 @@
   			<version>${org.springframework.version}</version>
   			<scope>test</scope>
 		</dependency>
+		
+	    <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.11</version>
+		  <scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jsp-api</artifactId>
+		  <version>2.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+		</dependency>
+<!-- 		aspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.9</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-aspects</artifactId> -->
+<!-- 			<version>${org.springframework.version}</version> -->
+<!-- 		</dependency> -->
   </dependencies>
   
      <distributionManagement> <!-- release repository element (only one) -->
@@ -98,10 +132,10 @@
 <!-- 				<updatePolicy>always</updatePolicy>same as release element -->
 <!-- 			</snapshots>  -->
 <!--  		</repository> -->
- 		<repository>
- 			<id>releases</id>
-            <name>My release test repository</name>
-            <url>http://192.168.0.153:12345/nexus/content/repositories/releases</url>
+		<repository>
+ 			<id>public</id>
+            <name>My repository Group</name>
+            <url>http://localhost:12345/nexus/content/groups/public/</url>
             <releases> 
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -109,24 +143,48 @@
 			</releases> 
 			<snapshots>
 				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
+				<updatePolicy>interval:5</updatePolicy>
 			</snapshots> 
  		</repository>
- 		
- 		<repository>
- 			<id>StevenTest1</id>
-            <name>My snapshot test repository</name>
-            <url>http://192.168.0.153:12345/nexus/content/repositories/StevenTest1</url>
-            <releases> 
-			<enabled>true</enabled> 
-			<updatePolicy>always</updatePolicy>
-			<checksumPolicy>ignore</checksumPolicy>
-			</releases> 
-			<snapshots> 
-				<enabled>true</enabled> 
-				<updatePolicy>always</updatePolicy>
-			</snapshots> 
- 		</repository>
+
  	</repositories>
-  
+ 	<build>
+	 	<resources>
+	 		<resource>
+	 			<directory>${project.basedir}/src/main/resources</directory>
+	 			<filtering>true</filtering>
+	 		</resource>
+	 	</resources>
+
+	 	<plugins>
+	 		<plugin>
+	 			<groupId>org.apache.maven.plugins</groupId>
+	 			<artifactId>maven-war-plugin</artifactId>
+	 			<version>2.1.1</version>
+	 			<configuration>
+	 				<archive>
+	 					<addMavenDescriptor>false</addMavenDescriptor>
+	 				</archive>
+	 				<webResources>
+	 					<resource>
+	 						<directory>config/</directory>
+	 						<targetPath>WEB-INF/classes</targetPath>
+	 						<filtering>true</filtering>
+	 					</resource>
+	 				</webResources>
+	 			</configuration>
+	 		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			  	<artifactId>maven-compiler-plugin</artifactId>
+			  	<version>3.1</version>
+			  	<!-- maven编译插件不支持高版本jdk，此处配置使其支持高版本jdk -->
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+	 	</plugins>
+ 	</build>
+
 </project>
