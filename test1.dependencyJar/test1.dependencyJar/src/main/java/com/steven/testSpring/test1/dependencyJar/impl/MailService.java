@@ -31,60 +31,6 @@ public class MailService implements IMailService {
 	final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 	@Override
 	public void send() throws GeneralSecurityException, AddressException, MessagingException {
-//		// Recipient's email ID needs to be mentioned.
-//	      String to = "gf164295903@163.com";
-//
-//	      // Sender's email ID needs to be mentioned
-//	      String from = "719527102@qq.com";
-//
-//	      // Assuming you are sending email from localhost
-//	      String host = "localhost";
-//
-//	      // Get system properties
-//	      Properties properties = System.getProperties();
-//
-//	      // Setup mail server
-//	      properties.setProperty("mail.debug", "true");
-//	      properties.setProperty("mail.smtp.host", "smtp.qq.com");
-//	      properties.setProperty("mail.smtp.port", "465");
-//	      properties.setProperty("mail.smtp.socketFactory.port", "465");
-//	      properties.put("mail.smtp.auth", "true");
-//	      properties.put("mail.debug", "true");
-//	      properties.put("mail.store.protocol", "pop3");
-//	      properties.put("mail.transport.protocol", "smtp");
-//	      MailSSLSocketFactory sf = new MailSSLSocketFactory();
-//	      sf.setTrustAllHosts(true);
-//	      properties.put("mail.smtp.ssl.enable", "true");
-//	      properties.put("mail.smtp.ssl.socketFactory", sf);
-//	      // Get the default Session object.
-//	      Session session = Session.getDefaultInstance(properties,new Authenticator() {
-//	    	  protected PasswordAuthentication getPasswordAuthentication() {
-//				return new PasswordAuthentication("719527102@qq.com", "wvvrnybafxgtbdab");
-//			}
-//		});
-//
-//	      try {
-//	         // Create a default MimeMessage object.
-//	         MimeMessage message = new MimeMessage(session);
-//
-//	         // Set From: header field of the header.
-//	         message.setFrom(new InternetAddress(from));
-//
-//	         // Set To: header field of the header.
-//	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-//
-//	         // Set Subject: header field
-//	         message.setSubject("This is the Subject Line!");
-//
-//	         // Now set the actual message
-//	         message.setText("This is actual message");
-//
-//	         // Send message
-//	         Transport.send(message);
-//	         System.out.println("Sent message successfully....");
-//	      }catch (MessagingException mex) {
-//	         mex.printStackTrace();
-//	      }	
 		Properties props = new Properties();
 
         // 开启debug调试
@@ -96,10 +42,6 @@ public class MailService implements IMailService {
         // 发送邮件协议名称
         props.setProperty("mail.transport.protocol", "smtp");
 
-//        MailSSLSocketFactory sf = new MailSSLSocketFactory();
-//        sf.setTrustAllHosts(true);
-//        props.put("mail.smtp.ssl.enable", "true");
-//        props.put("mail.smtp.ssl.socketFactory", sf);
 
         Session session = Session.getInstance(props);
 
@@ -143,7 +85,6 @@ public class MailService implements IMailService {
         StringBuilder builder = new StringBuilder();
         builder.append("url = " + "http://blog.csdn.net/never_cxb/article/details/50524571");
         builder.append("\n页面爬虫错误");
-//        builder.append("\n时间 " + TimeTool.getCurrentTime());
         msg.setText(builder.toString());
         msg.setFrom(new InternetAddress("719527102@qq.com"));
         msg.addRecipient(Message.RecipientType.TO, new InternetAddress("gf164295903@163.comm"));
@@ -154,7 +95,4 @@ public class MailService implements IMailService {
         transport.close();
 		
 	}
-	    @Autowired
-	    @Qualifier("sender")
-	    private JavaMailSender sender;
 }

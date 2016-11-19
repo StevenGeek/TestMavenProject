@@ -20,6 +20,7 @@
 <!-- 配置自动扫描type=assignable扫描派生于expression表达式所指定类型的哪些类  Spring实战p80  3.3.2过滤组件扫描 -->
 	<context:component-scan base-package="com" >
 		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IApp"></context:include-filter>
+		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IMailService"></context:include-filter>
 		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.aspectJbean.LogAudience"></context:include-filter>
 	</context:component-scan>
 	
