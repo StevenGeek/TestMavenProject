@@ -39,7 +39,8 @@ public class testController1 {
     public String testValue2() {
 //    	return m_App.testString();
     	String X = m_App.testString();
-        return m_App.testString() + "\r\n" + m_App.getStudent().toString() + " \r\nX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
+        return m_App.testString() + "\n" + m_App.getStudent().toString() + " \r\n" +
+                "XX:  " + m_App.getX() + "\nteacher: " + m_App.getTeacher().toString();
     }
     @RequestMapping(value = "/value3/{a}", method = RequestMethod.GET)
     @ResponseBody
