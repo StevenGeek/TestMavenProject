@@ -1,11 +1,13 @@
 package com.Spring;
 
 import java.security.GeneralSecurityException;
+import java.util.Date;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
@@ -17,6 +19,7 @@ public class quartzService{
 	private IMailService c_MailService;
 	public void send() throws AddressException, GeneralSecurityException, MessagingException{
 		System.out.println("start send");
-		c_MailService.send();
+		System.out.print(new Date().toString());
+//		c_MailService.send();
 	}
 }
