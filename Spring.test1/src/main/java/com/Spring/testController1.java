@@ -22,7 +22,9 @@ public class testController1 {
 	private IApp m_App;
 	@Value("${aa}")
     private String aa;
-	
+	@Autowired
+    @Qualifier("quartzService")
+    private quartzService c_QuartzService;
 	@RequestMapping(value = "/repositoryTest", method = RequestMethod.GET)
     @ResponseBody
     public String repositoryTest() {
@@ -54,5 +56,10 @@ public class testController1 {
     public String testReadAtt(@PathVariable String att) {
     	m_App.setAtt(att);
     	return att;
+    }
+    @RequestMapping(value = "scheduleDemo", method = RequestMethod.GET)
+    @ResponseBody
+    public void scheduleDemo()throws Exception{
+        c_QuartzService.send();
     }
 }

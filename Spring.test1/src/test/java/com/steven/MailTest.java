@@ -17,7 +17,7 @@ public class MailTest {
 	@Test
 	public void sendTest() throws Exception{
 		c_MailService = new MailService();
-		c_MailService.sendQQMail();
-		//c_MailService.send();
+//		c_MailService.sendQQMail();
+		c_MailService.send();
 	}
 }

@@ -11,43 +11,35 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" default-lazy-init="false">
 		
 		<bean id="abstractJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="concurrent" value="false" />
-		<property name="targetObject">
-			<ref bean="quartzService"></ref>
-		</property>
-		<property name="targetMethod" value="send" />
-	</bean>
-		
-		<bean id="testTaskJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean"> 
-			<property name="jobDetail"> 
-				<ref bean="abstractJobDetail" /> 
-			</property> 
-			<!-- 延时启动时间，单位ms --> 
-			<property name="startDelay" value="6000"></property> 
-			<!-- 重复间隔时间，单位ms --> 
-			<property name="repeatInterval" value="6000"> 
-			</property> 
-			</bean> 
+			<property name="targetObject" ref="quartzService"/>
+			<property name="targetMethod" value="send" />
+		</bean>
+	<bean id ="quartzService" class="com.Spring.quartzService"></bean>
+		<!--<bean id="testTaskJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean"> -->
+			<!--<property name="jobDetail"> -->
+				<!--<ref bean="abstractJobDetail" /> -->
+			<!--</property> -->
+			<!--&lt;!&ndash; 延时启动时间，单位ms &ndash;&gt; -->
+			<!--<property name="startDelay" value="6000"></property> -->
+			<!--&lt;!&ndash; 重复间隔时间，单位ms &ndash;&gt; -->
+			<!--<property name="repeatInterval" value="6000"> -->
+			<!--</property> -->
+			<!--</bean> -->
 		
 		<!-- 定义触发时间 --> 
     <bean id="doTime" 
         class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
-        <property name="jobDetail"> 
-            <ref bean="testTaskJobTrigger" /> 
-        </property> 
-        <!-- cron表达式，此处是每天10点42执行 --> 
-        <property name="cronExpression"> 
-            <value>0 42 10 * * ?</value> 
-        </property> 
-    </bean> 
+        <property name="jobDetail" ref ="abstractJobDetail"/>
+        <!-- cron表达式，此处是每天10点42执行 -->
+        <property name="cronExpression" value="0/20 * * * * ?"/>
+    </bean>
 		
 		<!--启动工作--> 
-		<bean lazy-init="false" 
-		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> 
+		<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers"> 
 		<list> 
 		<!-- 这里添加多个定时任务触发器，对应第2步的bean id --> 
-		<ref bean="testTaskJobTrigger" /> 
+		<ref bean="doTime" />
 		</list> 
 		</property> 
 		</bean> 

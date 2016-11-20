@@ -23,7 +23,8 @@
 		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.IMailService"></context:include-filter>
 		<context:include-filter type = "assignable" expression = "com.steven.testSpring.test1.dependencyJar.aspectJbean.LogAudience"></context:include-filter>
 	</context:component-scan>
-	
+
+
 <!-- 扫描出来的实现Iapp的类app默认bean id为小写类名，此处为其装配默认属性 -->
 	<bean id="app" class = "com.steven.testSpring.test1.dependencyJar.impl.App" p:X="xx">
 <!-- 	装配类属性 -->
@@ -74,6 +75,6 @@
 
 	
 <!-- 导入其他spring配置文件 -->
-	<import resource="classpath:spring/application-*-context.xml" />
-	
+	<!--<import resource="classpath:spring/application-*-context.xml" />-->
+	<import resource="classpath:spring/application-schedule.xml"/>
 </beans>

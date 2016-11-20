@@ -46,10 +46,12 @@ public class MailService implements IMailService {
         Session session = Session.getInstance(props);
 
         Message msg = new MimeMessage(session);
-        msg.setSubject("seenews 错误");
+        msg.setSubject("MyDemo Test Mail");
         StringBuilder builder = new StringBuilder();
-        builder.append("url = " + "http://blog.csdn.net/never_cxb/article/details/50524571");
-        builder.append("\n页面爬虫错误");
+        builder.append("MyDemo Test Mail");
+        builder.append("\nMyMail");
+        Date m_Date = new Date();
+            builder.append(m_Date.toString());
 //        builder.append("\n时间 " + TimeTool.getCurrentTime());
         msg.setText(builder.toString());
         msg.setFrom(new InternetAddress("gf164295903@163.com"));
