@@ -41,7 +41,7 @@
 	<ref bean="abstractJobDetail" />
 	</property>
 	<!-- 延时启动时间，单位ms -->
-	<property name="startDelay" value="6000"></property>
+	<property name="startDelay" value="60000"></property>
 	<!-- 重复间隔时间，单位ms -->
 	<property name="repeatInterval" value="6000">
 	</property>

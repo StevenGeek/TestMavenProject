@@ -20,6 +20,6 @@ public class quartzService{
 	public void send() throws AddressException, GeneralSecurityException, MessagingException{
 		System.out.println("start send");
 		System.out.print(new Date().toString());
-//		c_MailService.send();
+		c_MailService.send();
 	}
 }
