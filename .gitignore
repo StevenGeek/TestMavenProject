@@ -12,3 +12,13 @@ Spring.test1/.idea/
 Spring.test1/Spring.test1.iml
 test.parent/test.parent.iml
 test1.dependencyJar/test1.dependencyJar/test1.dependencyJar.iml
+steven.parent/.idea/
+Spring.demo/target/
+steven.parent/.settings/
+Spring.demo/.settings/
+*.classpath
+test.parent/.idea/
+*.project
+steven.parent/getIp.demo/target/
+steven.utilDependency.jar/steven.utilDependency.jar/.settings/
+*.iml
