@@ -3,14 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.steven.demo</groupId>
-    <artifactId>proj.parent</artifactId>
+    <artifactId>proj-parent</artifactId>
     <version>2.0.0-SNAPSHOT</version>
-    <relativePath>../proj.parent</relativePath>
+    <relativePath>../proj-parent</relativePath>
   </parent>
-  <artifactId>dependency.util</artifactId>
+  <artifactId>dependency-util</artifactId>
   <packaging>jar</packaging>
 
-  <name>dependency.util</name>
+  <name>dependency-util</name>
   <url>http://maven.apache.org</url>
 
   <properties>

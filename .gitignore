@@ -24,3 +24,4 @@ steven.utilDependency.jar/steven.utilDependency.jar/.settings/
 *.iml
 proj.parent/.idea/
 spring.controller/target/
+proj-parent/.idea/
