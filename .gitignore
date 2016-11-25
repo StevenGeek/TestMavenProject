@@ -22,3 +22,5 @@ test.parent/.idea/
 steven.parent/getIp.demo/target/
 steven.utilDependency.jar/steven.utilDependency.jar/.settings/
 *.iml
+proj.parent/.idea/
+spring.controller/target/

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" default-lazy-init="true"
+
+	   >
+	<bean id = "jobBuilder" class ="org.quartz.JobBuilder"></bean>
+	<bean id ="quartzService" class="com.steven.demo.dependency.util.util.quartz.springBeanInitial.quartzService" lazy-init="true"></bean>
+
+
+	<!--启动工作-->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<property name="triggers">
+	<list>
+	<!-- 这里添加多个定时任务触发器，对应第2步的bean id -->
+	<!--<ref bean="doTime" />-->
+		<!--<ref bean = "testSimpleJobTrigger"/>-->
+	</list>
+	</property>
+	</bean>
+
+	<!-- 定义触发时间SimpleTrigger -->
+	<bean id="testSimpleJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+	<property name="jobDetail">
+	<ref bean="abstractJobDetail" />
+	</property>
+	<!-- 延时启动时间，单位ms -->
+	<property name="startDelay" value="120000"></property>
+	<!-- 重复间隔时间，单位ms -->
+	<property name="repeatInterval" value="120000">
+	</property>
+	</bean>
+	<!-- 定义触发时间CronTrigger -->
+    <bean id="doTime"
+        class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref ="abstractJobDetail"/>
+        <!-- cron表达式，此处是每天10点42执行 -->
+        <property name="cronExpression" value="0/50 * * * * ?"/>
+    </bean>
+	<!--job detail-->
+
+	
+	<bean id="abstractJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="quartzService"/>
+		<property name="targetMethod" value="sendx" />
+	</bean>
+		</beans>
