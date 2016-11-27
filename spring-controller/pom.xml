@@ -8,23 +8,55 @@
     <version>2.0.0-SNAPSHOT</version>
     <relativePath>../proj-parent</relativePath>
   </parent>
-  
   <artifactId>spring.controller</artifactId>
   <packaging>war</packaging>
   <name>spring.controller</name>
   <url>http://maven.apache.org</url>
-  
+
+
   <dependencies>
   <dependency>
   	<groupId>com.steven.demo</groupId>
     <artifactId>dependency-util</artifactId>
     <version>2.0.0-SNAPSHOT</version>
   </dependency>
-	  <!--<dependency>-->
-		  <!--<groupId>com.steven.testSpring</groupId>-->
-		  <!--<artifactId>getIp.demo</artifactId>-->
-		  <!--<version>2.0.0-SNAPSHOT</version>-->
-	  <!--</dependency>-->
+	  <!--spring-->
+
+
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-core</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-webmvc</artifactId>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-tx</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-jdbc</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-test</artifactId>
+		  <scope>test</scope>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-context-support</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-context</artifactId>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-beans</artifactId>
+	  </dependency>
 
 		<dependency>
 		  <groupId>commons-fileupload</groupId>
