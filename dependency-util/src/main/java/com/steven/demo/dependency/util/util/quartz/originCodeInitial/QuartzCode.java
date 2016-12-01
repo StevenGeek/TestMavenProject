@@ -57,7 +57,7 @@ public class QuartzCode implements Job{
 //			jobExecutionContext.getScheduler().scheduleJob(jobExecutionContext.getJobDetail(),jobExecutionContext.getTrigger());
 			System.out.println("changed");
 		}else {
-			if (i ==4) {
+			if (i ==2) {
 				Scheduler sched = jobExecutionContext.getScheduler();
 				sched.shutdown();
 			}

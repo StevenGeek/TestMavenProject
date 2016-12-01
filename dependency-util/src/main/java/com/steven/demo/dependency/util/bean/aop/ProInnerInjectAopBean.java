@@ -1,4 +1,4 @@
-package com.steven.demo.spring.controller.aop.bean;
+package com.steven.demo.dependency.util.bean.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;

@@ -155,6 +155,12 @@
 			<artifactId>mail</artifactId>
 			<version>1.5.0-b01</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 	</dependencies>
 
@@ -162,12 +168,12 @@
         <repository><!-- release version component repository  --><!-- Q:是否可以多配置几个仓库 -->
             <id>releases</id><!-- release repository unique identification (*)-->
             <name>My release test repository</name><!-- only description to read -->
-            <url>http://localhost:11111/nexus/content/repositories/releases</url>
+            <url>http://192.168.0.141:8081/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository><!-- snapshot version component repository -->
             <id>snapshots</id><!--snapshot repository unique identification (*)-->
             <name>My snapshot test repository</name><!-- only description to read -->
-            <url>http://localhost:11111/nexus/content/repositories/snapshots</url><!-- target snapshot repository address (*)-->
+            <url>http://192.168.0.141:8081/nexus/content/repositories/snapshots</url><!-- target snapshot repository address (*)-->
         </snapshotRepository>
    </distributionManagement>
 
@@ -175,7 +181,7 @@
 		<repository>
 			<id>nexus</id>
 			<!--仓库地址-->
-			<url>http://localhost:11111/nexus/content/groups/public/</url>
+			<url>http://192.168.0.141:8081/nexus/content/groups/public/</url>
 			<releases>
 				<!--是否下载发布版本-->
 				<enabled>true</enabled>
@@ -193,7 +199,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>nexus</id>
-			<url>http://localhost:11111/nexus/content/groups/public</url>
+			<url>http://192.168.0.141:8081/nexus/content/groups/public</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
