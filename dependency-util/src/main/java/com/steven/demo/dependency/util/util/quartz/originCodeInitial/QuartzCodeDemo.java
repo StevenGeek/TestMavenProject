@@ -20,7 +20,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 /**
  * Created by kira7 on 2016/11/23 0023.
  */
-@Component
+
 public class QuartzCodeDemo implements InitializingBean{
 	@Autowired
 	private SimpleTrigger c_SimpleTrigger;
@@ -38,7 +38,7 @@ public class QuartzCodeDemo implements InitializingBean{
 	@Autowired
 	private quartzService c_QuartzService;
 	public QuartzCodeDemo () throws ParseException, SchedulerException {
-		initialQuartz();
+//		initialQuartz();
 	}
 //	@PostConstruct
 	public void initialQuartz() throws SchedulerException, ParseException {
@@ -75,6 +75,6 @@ public class QuartzCodeDemo implements InitializingBean{
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-//		initialQuartz();
+		initialQuartz();
 	}
 }

@@ -50,7 +50,7 @@ public class QuartzCode implements Job{
 			TriggerKey tkey = new TriggerKey("trigger1","group1");
 			Trigger trigger = jobExecutionContext.getScheduler().getTrigger(tkey);
 //			SimpleTrigger newTrigger = (SimpleTrigger) TriggerBuilder.newTrigger().withIdentity("newTrigger","group1").withSchedule(simpleSchedule().withIntervalInSeconds(100).withRepeatCount(10)).build();
-			SimpleTrigger newTrigger = (SimpleTrigger) TriggerBuilder.newTrigger().withIdentity("newTrigger","group1").withSchedule(simpleSchedule().withIntervalInSeconds(100).withRepeatCount(5)).build();
+			SimpleTrigger newTrigger = (SimpleTrigger) TriggerBuilder.newTrigger().withIdentity("newTrigger","group1").withSchedule(simpleSchedule().withIntervalInSeconds(100).withRepeatCount(2)).build();
 			jobExecutionContext.getScheduler().rescheduleJob(tkey,newTrigger);
 //			SimpleTrigger trigger = (SimpleTrigger) jobExecutionContext.getTrigger();
 //			trigger.getTriggerBuilder().withSchedule(simpleSchedule().withIntervalInSeconds(12));
