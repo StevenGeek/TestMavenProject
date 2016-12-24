@@ -26,3 +26,6 @@ proj.parent/.idea/
 spring.controller/target/
 proj-parent/.idea/
 spring-controller/target/
+spring-controller/.settings/
+dependency-util/.settings/
+proj-parent/.settings/

@@ -5,15 +5,16 @@ import com.steven.demo.dependency.util.util.quartz.originCodeInitial.QuartzCodeD
 import org.quartz.SchedulerException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import java.text.ParseException;
 
 /**
  * Created by kira7 on 2016/11/30 0030.
  */
-@Configuration
+@Configuration //xml文件的替换形式写法（@Component也可以，最好用@Configuration）
 public class BeanConfig {
-	@Bean
+	@Bean //相当于在xml里配置了该bean
 	public SpringConfigInjectBean springConfigInjectBean(){
 		return new SpringConfigInjectBean("AA");
 	}

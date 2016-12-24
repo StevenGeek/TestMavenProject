@@ -3,6 +3,9 @@ package com.steven.demo.dependency.util.aspectJbean;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 public class LogAudience {
+	public LogAudience(){
+		System.out.print("inited");
+	}
 	private String attribute;
 	public void runBeforeMethod(){
 		System.out.println("This is printed before method running......\r\n");

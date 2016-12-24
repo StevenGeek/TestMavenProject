@@ -4,12 +4,13 @@ import com.steven.demo.dependency.util.IApp;
 
 import com.steven.demo.dependency.util.bean.Student;
 import com.steven.demo.dependency.util.bean.Teacher;
+import org.springframework.context.annotation.Primary;
 
 /**
  * Hello world!
  *
  */
-
+@Primary
 public class App implements IApp
 {
 	public App(){
