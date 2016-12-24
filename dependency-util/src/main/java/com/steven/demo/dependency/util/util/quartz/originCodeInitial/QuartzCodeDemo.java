@@ -38,7 +38,7 @@ public class QuartzCodeDemo implements InitializingBean{
 	@Autowired
 	private quartzService c_QuartzService;
 	public QuartzCodeDemo () throws ParseException, SchedulerException {
-//		initialQuartz();
+		initialQuartz();
 	}
 //	@PostConstruct
 	public void initialQuartz() throws SchedulerException, ParseException {
@@ -64,7 +64,7 @@ public class QuartzCodeDemo implements InitializingBean{
 //		c_JobDetail = c_JobBuilder.newJob(QuartzCode.class).withIdentity("myJob","group1").build();
 		c_SimpleTrigger = (SimpleTrigger) TriggerBuilder.newTrigger()
 				.withIdentity("trigger1", "group1")
-				.startNow().withSchedule(simpleSchedule().withIntervalInSeconds(6).withRepeatCount(5)) // some Date
+				.startNow().withSchedule(simpleSchedule().withIntervalInSeconds(120).withRepeatCount(2)) // some Date
 //				.forJob("myJob", "group1") // identify job with name, group strings
 				.build();
 		c_JobDetailImpl.getJobDataMap().put("service",c_QuartzService);

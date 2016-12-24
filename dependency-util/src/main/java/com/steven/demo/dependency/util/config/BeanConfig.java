@@ -18,8 +18,8 @@ public class BeanConfig {
 	public SpringConfigInjectBean springConfigInjectBean(){
 		return new SpringConfigInjectBean("AA");
 	}
-//	@Bean
-//	public QuartzCodeDemo quartzCodeDemo() throws ParseException, SchedulerException {
-//		return new QuartzCodeDemo();
-//	}
+	@Bean
+	public QuartzCodeDemo quartzCodeDemo() throws ParseException, SchedulerException {
+		return new QuartzCodeDemo();
+	}
 }
