@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,7 +20,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 /**
  * Created by kira7 on 2016/11/23 0023.
  */
-@Component
+
 public class QuartzCodeDemo implements InitializingBean{
 	@Autowired
 	private SimpleTrigger c_SimpleTrigger;
@@ -36,7 +37,10 @@ public class QuartzCodeDemo implements InitializingBean{
 	private JobDetailImpl c_JobDetailImpl;
 	@Autowired
 	private quartzService c_QuartzService;
-
+	public QuartzCodeDemo () throws ParseException, SchedulerException {
+//		initialQuartz();
+	}
+//	@PostConstruct
 	public void initialQuartz() throws SchedulerException, ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = sdf.parse("2016-11-23 14:00:00");
@@ -60,7 +64,7 @@ public class QuartzCodeDemo implements InitializingBean{
 //		c_JobDetail = c_JobBuilder.newJob(QuartzCode.class).withIdentity("myJob","group1").build();
 		c_SimpleTrigger = (SimpleTrigger) TriggerBuilder.newTrigger()
 				.withIdentity("trigger1", "group1")
-				.startNow().withSchedule(simpleSchedule().withIntervalInSeconds(6).withRepeatCount(5)) // some Date
+				.startNow().withSchedule(simpleSchedule().withIntervalInSeconds(120).withRepeatCount(2)) // some Date
 //				.forJob("myJob", "group1") // identify job with name, group strings
 				.build();
 		c_JobDetailImpl.getJobDataMap().put("service",c_QuartzService);

@@ -10,7 +10,7 @@
   </parent>
   <artifactId>spring.controller</artifactId>
   <packaging>war</packaging>
-  <name>spring.controller</name>
+  <name>spring-controller</name>
   <url>http://maven.apache.org</url>
 
 
@@ -22,7 +22,12 @@
   </dependency>
 	  <!--spring-->
 
-
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.12</version>
+		  <scope>test</scope>
+	  </dependency>
 	  <dependency>
 		  <groupId>org.springframework</groupId>
 		  <artifactId>spring-core</artifactId>
@@ -93,11 +98,15 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
 		</dependency>
-		
+		  <dependency>
+			  <groupId>org.springframework.ws</groupId>
+			  <artifactId>spring-ws-core</artifactId>
+			  <version>2.4.0.RELEASE</version>
+		  </dependency>
   </dependencies>
   
   <build>
-    <finalName>Spring.demo</finalName>
+    <finalName>Spring-demo</finalName>
     <plugins>
     	<plugin>
 		    <groupId>org.codehaus.cargo</groupId>

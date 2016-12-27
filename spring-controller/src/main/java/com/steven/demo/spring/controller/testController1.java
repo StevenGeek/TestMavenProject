@@ -3,6 +3,7 @@ package com.steven.demo.spring.controller;
 import com.steven.demo.dependency.util.IApp;
 import com.steven.demo.dependency.util.util.quartz.originCodeInitial.QuartzCodeDemo;
 import com.steven.demo.dependency.util.util.quartz.springBeanInitial.quartzService;
+import com.steven.demo.spring.webService.WebServiceClient;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import java.io.IOException;
 import java.text.ParseException;
-
 @Controller
 @RequestMapping(value = "/springTest")
 public class testController1 {
@@ -25,16 +26,30 @@ public class testController1 {
 	@Value("${aa}")
     private String aa;
 	@Autowired
+	@Qualifier("webServiceClient")
+	private WebServiceClient c_WebserviceClient;
+	@Autowired
     @Qualifier("quartzService")
     private quartzService c_QuartzService;
 	@Autowired
 	private QuartzCodeDemo c_QuartzCodeDemo;
+	@RequestMapping(value = "/webServiceClientTest", method = RequestMethod.GET)
+	@ResponseBody
+	public String webServiceClientTest() throws IOException {
+		return c_WebserviceClient.simpleSendAndReceive();
+	}
 	@RequestMapping(value = "/repositoryTest", method = RequestMethod.GET)
     @ResponseBody
     public String repositoryTest() {
         return m_App.repositoryTest();
     }
-	
+
+	@RequestMapping(value = "/value", method = RequestMethod.POST)
+	@ResponseBody
+	public String Value() {
+		return "value";
+	}
+
     @RequestMapping(value = "/value1", method = RequestMethod.GET)
     @ResponseBody
     public String testValue() {

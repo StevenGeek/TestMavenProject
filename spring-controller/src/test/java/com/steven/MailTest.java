@@ -2,6 +2,8 @@ package com.steven;
 
 
 
+import com.steven.demo.dependency.util.bean.SpringConfigInjectBean;
+import com.steven.demo.dependency.util.util.mailUtil.IMailService;
 import com.steven.demo.dependency.util.util.quartz.springBeanInitial.quartzService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +15,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:/spring/application-context.xml")
 public class MailTest {
 	@Autowired
-	private quartzService c_quartzService;
+	private IMailService c_MailService;
+	@Autowired
+	private SpringConfigInjectBean c_SpringConfigInjectBean;
 	@Test
 	public void sendTest() throws Exception{
-		//c_quartzService.send();
+//		c_MailService.send("x");
+		c_MailService.sendQQMail();
 	}
 }
